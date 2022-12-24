@@ -57,6 +57,6 @@ class Main{
         while(dummy!=null){
             System.out.print(dummy.data+" ");
             dummy=dummy.next;
-        }
+        
     }
 }
