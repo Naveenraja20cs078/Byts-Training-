@@ -1,0 +1,62 @@
+//constructing Node structure 
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this .data=data;
+    }
+}
+
+
+class Main{
+    //Add first element 
+    public static Node addFirst(Node head,int val){
+        Node n=new Node(val);
+        n.next=head;
+        return n;
+    }
+    //Add last Element 
+    public static Node addLast(Node head,int val){
+        Node n=new Node(val);
+        Node tail=head;
+        while(tail.next!=null){
+            tail=tail.next;
+        }
+        tail.next=n;
+        return head;
+    }
+    //Add at any where 
+    public static Node addAt(Node head,int val,int index){
+        if(head==null){
+            head= new Node(val);
+            return head;
+        }
+        else{
+            Node last=head;
+            while(index>0 && last.next!=null){
+                last=last.next;
+                index--;
+            }
+            Node temp = last.next;
+            last.next= new Node(val);
+            last.next.next = temp;
+        }
+        return head;
+    }
+  
+    public static void main(String [] args){
+        Node n=new Node(10);
+        Node n1=new Node(20);
+        Node n2=new Node(30);
+        Node head=n;
+        n.next=n1;
+        n1.next=n2;
+        Node dummy=head;
+        dummy = addLast(dummy, 25);
+        dummy = addAt(dummy, 90, 3);
+        while(dummy!=null){
+            System.out.print(dummy.data+" ");
+            dummy=dummy.next;
+        }
+    }
+}
