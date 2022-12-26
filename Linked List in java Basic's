@@ -59,4 +59,4 @@ class Main{
             dummy=dummy.next;
    }
     }
-}
+
